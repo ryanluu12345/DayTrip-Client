@@ -1,0 +1,28 @@
+.choice-page {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.choice-segment {
+  color: #000;
+  margin: 20px;
+}
+
+.choice-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  .choice-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
