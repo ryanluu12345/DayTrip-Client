@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './preference-form.css';
 import { connect } from 'react-redux';
-import { getHello } from '../../actions/index';
+import { getPlacesRequest } from '../../actions/index';
 import { withRouter } from 'react-router-dom'
 
 /* Maps the dispatch of the get places action to the props */
 function mapDispatchToProps(dispatch) {
   return ({
-    getHello: parameters => dispatch(getHello(parameters))
+    getPlacesRequest: parameters => dispatch(getPlacesRequest(parameters))
   });
 };
 
@@ -28,7 +28,7 @@ class PreferenceForm extends Component {
 
   // Move the post request to the "getPlaces" action
   handleClick = (event) => {
-    this.props.getHello(this.state);
+    this.props.getPlacesRequest(this.state);
     this.props.history.push('/choices');
   }
 

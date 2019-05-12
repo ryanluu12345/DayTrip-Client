@@ -24,6 +24,10 @@
   color: #fff;
 }
 
+.selected {
+  background: #adf7ba;
+}
+
 /* Mobile */
 @media only screen and (max-width: 768px) {
   .choice-card {
