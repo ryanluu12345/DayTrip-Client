@@ -22,6 +22,11 @@ export function doNotSignInUser(payload) {
   return { type: 'DO_NOT_SIGN_IN_USER', payload }
 }
 
+export function signOutUser() {
+  localStorage.clear();
+  return { type: 'SIGN_OUT_USER' }
+}
+
 export function signInRequest() {
   return (dispatch) => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -50,7 +55,10 @@ export function getPlacesRequest(parameters) {
       body: JSON.stringify(parameters)
     })
     .then(res => res.json())
-    .then(resJson => dispatch(getPlaces(resJson)))
+    .then(resJson => {
+      dispatch(getPlaces(resJson));
+      history.push('/choices');
+    })
     .catch(err => console.log(err));
   }
 };

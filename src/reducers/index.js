@@ -32,6 +32,9 @@ function rootReducer(state = initialState, action) {
   else if (action.type === 'SIGN_IN_USER') {
     return { ...state, authenticated: true }
   }
+  else if (action.type === 'SIGN_OUT_USER') {
+    return { ...state, authenticated: false }
+  }
   return state;
 }
 

@@ -22,7 +22,6 @@ class PreferenceForm extends Component {
   // Move the post request to the "getPlaces" action
   handleClick = (event) => {
     this.props.getPlacesRequest(this.state);
-    this.props.history.push('/choices');
   }
 
   render() {
