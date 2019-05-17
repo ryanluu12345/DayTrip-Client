@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
   return { places: state.places, itinerary: state.itinerary }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return ({
     createItinerary: (itinerary) => dispatch(createItinerary(itinerary))
   });

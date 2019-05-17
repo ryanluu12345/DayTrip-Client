@@ -7,11 +7,13 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PreferenceForm from './components/PreferenceForm/PreferenceForm';
 import ChoicePage from './components/ChoicePage/ChoicePage';
+import SignupPage from './components/SignupPage/SignupPage';
 
 ReactDOM.render(
   <Provider store = {store}>
     <Router>
       <div>
+        <Route exact path="/signup" component={SignupPage} />
         <Route exact path="/preferences" component={PreferenceForm} />
         <Route exact path="/choices" component={ChoicePage} />
       </div>

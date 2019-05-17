@@ -1,10 +1,11 @@
 const initialState = {
+  authenticated: false,
+  user: null,
   places: {},
   itinerary: {}
 };
 
 function rootReducer(state = initialState, action) {
-  console.log("entered");
   if (action.type === 'GET_PLACES') {
     console.log(action.payload);
     return { ...state, places: action.payload }
@@ -25,8 +26,12 @@ function rootReducer(state = initialState, action) {
           }
   }
   else if (action.type === 'CREATE_ITINERARY') {
-    let fullItinerary = action.payload
-    return { ...state, fullItinerary: fullItinerary}
+    let fullItinerary = action.payload;
+    return { ...state, fullItinerary: fullItinerary};
+  }
+  else if (action.type === 'SIGN_IN_USER') {
+    const { user } = action.payload;
+    return { ...state, authenticated: true }
   }
   return state;
 }

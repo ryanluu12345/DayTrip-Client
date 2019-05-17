@@ -4,13 +4,6 @@ import { connect } from 'react-redux';
 import { getPlacesRequest } from '../../actions/index';
 import { withRouter } from 'react-router-dom'
 
-/* Maps the dispatch of the get places action to the props */
-function mapDispatchToProps(dispatch) {
-  return ({
-    getPlacesRequest: parameters => dispatch(getPlacesRequest(parameters))
-  });
-};
-
 class PreferenceForm extends Component {
   state = {
     location:'',
@@ -60,5 +53,12 @@ class PreferenceForm extends Component {
     );
   }
 }
+
+/* Maps the dispatch of the get places action to the props */
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    getPlacesRequest: parameters => dispatch(getPlacesRequest(parameters))
+  });
+};
 
 export default withRouter(connect(null, mapDispatchToProps) (PreferenceForm));
