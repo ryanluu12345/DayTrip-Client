@@ -9,9 +9,9 @@ class Navbar extends Component {
       <nav>
         <ul className="navbar-container">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/itinerary-list">Itinerary List</Link></li>
-          <li><Link to="/signup">Sign Up</Link></li>
-          <li><Link to="/logout">Logout</Link></li>
+          { this.props.authenticated ? <li><Link to="/itinerary-list">Itinerary List</Link></li> : null }
+          { !this.props.authenticated ? <li><Link to="/signup">Sign Up</Link></li> : null }
+          { this.props.authenticated ? <li><Link to="/logout">Logout</Link></li> : null }
         </ul>
       </nav>
     )
