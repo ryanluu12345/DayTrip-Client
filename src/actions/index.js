@@ -1,5 +1,6 @@
 import firebaseUtil from '../firebase-util'
 import firebase from 'firebase' //Refactor to take firebase logic out of here
+import history from '../history'
 
 export function addChosenPlace(payload) {
   return { type: 'ADD_CHOSEN_PLACE', payload}
@@ -13,8 +14,8 @@ export function createItinerary(payload) {
   return { type: 'CREATE_ITINERARY', payload}
 };
 
-export function signInUser(payload) {
-  return { type: 'SIGN_IN_USER', payload}
+export function signInUser() {
+  return { type: 'SIGN_IN_USER' }
 }
 
 export function doNotSignInUser(payload) {
@@ -29,10 +30,10 @@ export function signInRequest() {
       var token = result.credential.accessToken;
       //Sets the token to local storage
       localStorage.setItem('userToken', token);
-      // The signed-in user info.
-      var user = result.user;
-      dispatch(signInUser({user: user}))
+      dispatch(signInUser())
+      history.push('/itinerary-list')
     }).catch(function(error) {
+      console.log(error);
       var errorMessage = error.message;
       dispatch(doNotSignInUser({error: errorMessage}))
     });

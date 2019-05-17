@@ -2,20 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store/index';
+import history from './history';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import PreferenceForm from './components/PreferenceForm/PreferenceForm';
 import ChoicePage from './components/ChoicePage/ChoicePage';
 import SignupPage from './components/SignupPage/SignupPage';
+import ItineraryListPage from './components/ItineraryListPage/ItineraryListPage';
+
+//AUTH IMPORTS
+import { getUserToken } from './services/authentication/index';
+import { signInUser } from './actions/index';
+import requireAuth from './components/HigherOrderComponents/require_auth';
+import notRequireAuth from './components/HigherOrderComponents/not_require_auth';
+
+// Signs in user who already has a token in localStorage
+const userToken = getUserToken()
+if (userToken) {
+  store.dispatch(signInUser())
+}
 
 ReactDOM.render(
   <Provider store = {store}>
-    <Router>
+    <Router history = {history}>
       <div>
-        <Route exact path="/signup" component={SignupPage} />
-        <Route exact path="/preferences" component={PreferenceForm} />
-        <Route exact path="/choices" component={ChoicePage} />
+        <Route exact path="/itinerary-list" component={requireAuth(ItineraryListPage)} />
+        <Route exact path="/signup" component={notRequireAuth(SignupPage)} />
+        <Route exact path="/preferences" component={requireAuth(PreferenceForm)} />
+        <Route exact path="/choices" component={requireAuth(ChoicePage)} />
       </div>
     </Router>
   </Provider>, 

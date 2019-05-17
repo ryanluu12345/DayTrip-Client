@@ -30,7 +30,6 @@ function rootReducer(state = initialState, action) {
     return { ...state, fullItinerary: fullItinerary};
   }
   else if (action.type === 'SIGN_IN_USER') {
-    const { user } = action.payload;
     return { ...state, authenticated: true }
   }
   return state;
