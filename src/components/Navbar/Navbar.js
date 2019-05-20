@@ -8,10 +8,10 @@ class Navbar extends Component {
     return (
       <nav>
         <ul className="navbar-container">
-          <li><Link to="/">Home</Link></li>
-          { this.props.authenticated ? <li><Link to="/itinerary-list">Itinerary List</Link></li> : null }
-          { !this.props.authenticated ? <li><Link to="/signup">Sign Up</Link></li> : null }
-          { this.props.authenticated ? <li><Link to="/logout">Logout</Link></li> : null }
+          <li><Link className="nav-link" to="/">Home</Link></li>
+          { this.props.authenticated ? <li><Link className="nav-link" to="/itinerary-list">Itinerary List</Link></li> : null }
+          { !this.props.authenticated ? <li><Link className="nav-link" to="/signup">Sign Up</Link></li> : null }
+          { this.props.authenticated ? <li><Link className="nav-link" to="/logout">Logout</Link></li> : null }
         </ul>
       </nav>
     )
