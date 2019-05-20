@@ -21,6 +21,7 @@ import { getUserToken } from './services/authentication/index';
 import { signInUser } from './actions/index';
 import requireAuth from './components/HigherOrderComponents/require_auth';
 import notRequireAuth from './components/HigherOrderComponents/not_require_auth';
+import DetailedItineraryPage from './components/DetailedItineraryPage/DetailedItineraryPage';
 
 // Signs in user who already has a token in localStorage
 const userToken = getUserToken()
@@ -34,6 +35,7 @@ ReactDOM.render(
       <div>
         <Navbar />
         <Route exact path="/itinerary-list" component={requireAuth(ItineraryListPage)} />
+        <Route exact path="/detailed-itinerary" component={requireAuth(DetailedItineraryPage)} />
         <Route exact path="/signup" component={notRequireAuth(SignupPage)} />
         <Route exact path="/preferences" component={requireAuth(PreferenceForm)} />
         <Route exact path="/choices" component={requireAuth(ChoicePage)} />

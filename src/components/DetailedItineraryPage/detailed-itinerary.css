@@ -1,0 +1,17 @@
+.detailed-itinerary-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.place-card {
+  margin: 0 0 25px 0;
+  width: 50%;
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  .place-card {
+    width: 80%;
+  }
+}

@@ -11,8 +11,7 @@ class ItineraryListPage extends Component {
   //TODO: Add ability to loop through list group items and render the name of the itineraries
   
   handleItineraryClick = (e) => {
-    
-    this.props.history.push('/');
+    this.props.history.push('/detailed-itinerary');
   }
   
   render() {
