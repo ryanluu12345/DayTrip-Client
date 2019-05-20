@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signInRequest } from '../../actions/index';
 import { withRouter } from 'react-router-dom';
+import GoogleButton from 'react-google-button';
+import './signup.css';
 
 class SignupPage extends Component {
   
@@ -11,10 +13,15 @@ class SignupPage extends Component {
   }
   
   render() {
+    const labelTitle = "Sign in with Google";
+    const colorType = "dark";
     return (
-      <div>
-        <button onClick={this.handleSignup}>Signup</button>
-        {this.props.authenticated?"I am in":"Not in"}
+      <div className="signup">
+        <div className="signup-card">
+          <h1 className="app-title"> Daytrip </h1>
+          <h3 className="app-tagline"> We'll plan your next adventure </h3>
+          <GoogleButton type = { colorType } label={ labelTitle } onClick={ this.handleSignup } />
+        </div>
       </div>
     )
   }
