@@ -10,8 +10,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 class ItineraryListPage extends Component {
   //TODO: Add ability to loop through list group items and render the name of the itineraries
   
-  handleItineraryClick = (e) => {
-    this.props.history.push('/detailed-itinerary');
+  handleItineraryClick = (itineraryId) => {
+    this.props.history.push('/detailed-itinerary', {itineraryId: itineraryId});
   }
   
   render() {
@@ -21,9 +21,9 @@ class ItineraryListPage extends Component {
         <Card className="itinerary-card">
           <Card.Header>{ listTitle }</Card.Header>
           <ListGroup variant="flush">
-            <ListGroup.Item className="itinerary-item" onClick={ this.handleItineraryClick } action>Sample 1</ListGroup.Item>
-            <ListGroup.Item className="itinerary-item" onClick={ this.handleItineraryClick } action>Sample 2</ListGroup.Item>
-            <ListGroup.Item className="itinerary-item" onClick={ this.handleItineraryClick } action>Sample 3</ListGroup.Item>
+            <ListGroup.Item className="itinerary-item" onClick={()=>this.handleItineraryClick("1")} action>Sample 1</ListGroup.Item>
+            <ListGroup.Item className="itinerary-item" onClick={()=>this.handleItineraryClick("2")} action>Sample 2</ListGroup.Item>
+            <ListGroup.Item className="itinerary-item" onClick={()=>this.handleItineraryClick("3")} action>Sample 3</ListGroup.Item>
           </ListGroup>
         </Card>
       </div>
