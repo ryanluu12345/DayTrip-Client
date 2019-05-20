@@ -1,0 +1,9 @@
+.itinerary-card {
+  margin: 10px 0 0 0;
+}
+
+.itinerary-list-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

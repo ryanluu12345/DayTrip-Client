@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store/index';
 import history from './history';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import * as serviceWorker from './serviceWorker';
 import { Router, Route } from 'react-router-dom';
 
