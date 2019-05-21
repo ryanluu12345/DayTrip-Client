@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './preference-form.css';
 import { connect } from 'react-redux';
-import { getPlacesRequest } from '../../actions/index';
-import { withRouter } from 'react-router-dom'
+import { getPlacesRequest } from 'actions/index';
+import { withRouter } from 'react-router-dom';
 
 class PreferenceForm extends Component {
   state = {
