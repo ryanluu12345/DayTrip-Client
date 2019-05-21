@@ -34,12 +34,12 @@ ReactDOM.render(
     <Router history = {history}>
       <div>
         <Navbar />
+        <Route exact path="/signup" component={notRequireAuth(SignupPage)} />
+        <Route exact path="/logout" component={requireAuth(LogoutPage)} />
         <Route exact path="/itinerary-list" component={requireAuth(ItineraryListPage)} />
         <Route exact path="/detailed-itinerary" component={requireAuth(DetailedItineraryPage)} />
-        <Route exact path="/signup" component={notRequireAuth(SignupPage)} />
         <Route exact path="/preferences" component={requireAuth(PreferenceForm)} />
         <Route exact path="/choices" component={requireAuth(ChoicePage)} />
-        <Route exact path="/logout" component={requireAuth(LogoutPage)} />
       </div>
     </Router>
   </Provider>, 

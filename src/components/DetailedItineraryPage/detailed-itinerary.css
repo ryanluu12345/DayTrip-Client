@@ -6,7 +6,12 @@
 
 .place-card {
   margin: 0 0 25px 0;
+  padding: 5px;
   width: 50%;
+}
+
+.explore-button {
+  width: 100%;
 }
 
 /* Mobile */

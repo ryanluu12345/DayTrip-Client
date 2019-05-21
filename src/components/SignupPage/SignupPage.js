@@ -19,7 +19,7 @@ class SignupPage extends Component {
       <div className="signup">
         <div className="signup-card">
           <h1 className="app-title"> Daytrip </h1>
-          <h3 className="app-tagline"> We'll plan your next adventure </h3>
+          <h3 className="app-tagline"> Plan your next adventure </h3>
           <GoogleButton type = { colorType } label={ labelTitle } onClick={ this.handleSignup } />
         </div>
       </div>

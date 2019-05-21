@@ -13,29 +13,29 @@ class DetailedItineraryPage extends Component {
         <h1>Detailed Itinerary: { itineraryId }</h1>
         <h3>Breakfast</h3>
         <Card className="place-card">
-          <Card.Img variant="top" src="https://cdn.stockphotosecrets.com/wp-content/uploads/2018/08/hide-the-pain-stockphoto-840x560.jpg" />
+          <Card.Img variant="top" src="https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg" />
           <Card.Body>
             <Card.Title>Name of Place</Card.Title>
             <Card.Text>Desc of place</Card.Text>
-            <Button>Explore</Button>
+            <Button className="explore-button">Explore</Button>
           </Card.Body>
         </Card>
 
         <Card className="place-card">
-          <Card.Img variant="top" src="https://cdn.stockphotosecrets.com/wp-content/uploads/2018/08/hide-the-pain-stockphoto-840x560.jpg" />
+          <Card.Img variant="top" src="https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg" />
           <Card.Body>
             <Card.Title>Name of Place</Card.Title>
             <Card.Text>Desc of place</Card.Text>
-            <Button>Explore</Button>
+            <Button className="explore-button">Explore</Button>
           </Card.Body>
         </Card>
 
         <Card className="place-card">
-          <Card.Img variant="top" src="https://cdn.stockphotosecrets.com/wp-content/uploads/2018/08/hide-the-pain-stockphoto-840x560.jpg" />
+          <Card.Img variant="top" src="https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg" />
           <Card.Body>
             <Card.Title>Name of Place</Card.Title>
             <Card.Text>Desc of place</Card.Text>
-            <Button>Explore</Button>
+            <Button className="explore-button">Explore</Button>
           </Card.Body>
         </Card>
       </div>
