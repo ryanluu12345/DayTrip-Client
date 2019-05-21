@@ -1,3 +1,7 @@
+import { combineReducers } from "redux";
+import auth from "reducers/auth";
+import suggestions from "reducers/suggestions";
+
 const initialState = {
   authenticated: false,
   user: null,
@@ -5,6 +9,9 @@ const initialState = {
   itinerary: {}
 };
 
+export default combineReducers({ auth, suggestions });
+
+/*
 function rootReducer(state = initialState, action) {
   if (action.type === "GET_PLACES") {
     console.log(action.payload);
@@ -13,10 +20,6 @@ function rootReducer(state = initialState, action) {
     console.log(action.payload);
     const mealType = action.payload.mealType;
     const placeData = action.payload.placeData;
-    /* add */
-    /** TODO: Finish up the action so it adds the chosen place to the global state */
-    /** TODO: Add validation for the global state ids */
-    /** TODO: Search through the places object to send the correct object back to Darin */
     return {
       ...state,
       itinerary: {
@@ -35,4 +38,4 @@ function rootReducer(state = initialState, action) {
   return state;
 }
 
-export default rootReducer;
+*/

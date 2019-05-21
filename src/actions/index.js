@@ -1,6 +1,8 @@
-import firebaseUtil from "../firebase-util";
+import firebaseUtil from "firebase-util";
 import firebase from "firebase"; //Refactor to take firebase logic out of here
 import history from "../history";
+import "constants/routes";
+import { suggestionsRoute, echoRoute } from "constants/routes";
 
 export function addChosenPlace(payload) {
   return { type: "ADD_CHOSEN_PLACE", payload };
@@ -51,7 +53,7 @@ export function signInRequest() {
 
 export function getPlacesRequest(parameters) {
   return dispatch => {
-    fetch("http://localhost:5000/suggestions", {
+    fetch(suggestionsRoute, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -70,7 +72,7 @@ export function getPlacesRequest(parameters) {
 //TODO: Modify this to send a request to the create itinerary endpoint
 export function createItineraryRequest(parameters) {
   return dispatch => {
-    fetch("http://localhost:5000/echo", {
+    fetch(echoRoute, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

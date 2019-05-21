@@ -49,7 +49,7 @@ class Navbar extends Component {
 
 const mapStateToProps = state => {
   return {
-    authenticated: state.authenticated
+    authenticated: state.auth.authenticated
   };
 };
 
