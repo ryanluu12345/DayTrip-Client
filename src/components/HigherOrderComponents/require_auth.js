@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-export default function (ComposedComponent) {
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+export default function(ComposedComponent) {
   class Authentication extends Component {
     componentWillMount() {
       if (!this.props.authenticated) {
-        this.props.history.push('/signup');
+        this.props.history.push("/signup");
       }
     }
     componentWillUpdate(nextProps) {
       if (!nextProps.authenticated) {
-        this.props.history.push('/signup');
+        this.props.history.push("/signup");
       }
     }
     PropTypes = {
-      router: PropTypes.object,
-    }
+      router: PropTypes.object
+    };
     render() {
       return <ComposedComponent {...this.props} />;
     }

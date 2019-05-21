@@ -6,7 +6,7 @@ body {
   background: linear-gradient(to right, rgb(71, 118, 230), rgb(142, 84, 233));
   margin: 0;
   padding: 0;
-  font-family: 'Nunito';
+  font-family: "Nunito";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -17,5 +17,5 @@ code {
 }
 
 button {
-  font-family: 'Nunito';
+  font-family: "Nunito";
 }
