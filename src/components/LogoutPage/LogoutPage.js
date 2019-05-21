@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { signOutUser } from '../../actions/index';
+import { signOutUser } from 'actions/index';
 
 class LogoutPage extends Component {
   componentWillMount() {

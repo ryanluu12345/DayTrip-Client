@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './choice-page.css';
 import { connect } from 'react-redux';
-import ChoiceCard from '../ChoiceCard/ChoiceCard';
-import { createItinerary } from '../../actions/index';
+import ChoiceCard from 'components/ChoiceCard/ChoiceCard';
+import { createItinerary } from 'actions/index';
 
 class ChoicePage extends Component {  
 

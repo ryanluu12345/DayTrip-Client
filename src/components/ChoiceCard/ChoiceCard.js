@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './choice-card.css';
 import StarRatingComponent from 'react-star-rating-component';
 import { connect } from 'react-redux';
-import { addChosenPlace } from '../../actions/index';
+import { addChosenPlace } from 'actions/index';
 
 function mapDispatchToProps(dispatch) {
   return ({

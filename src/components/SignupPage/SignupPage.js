@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signInRequest } from '../../actions/index';
+import { signInRequest } from 'actions/index';
 import { withRouter } from 'react-router-dom';
 import GoogleButton from 'react-google-button';
 import './signup.css';
