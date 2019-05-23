@@ -1,0 +1,25 @@
+.home-page {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-app-title {
+  color: #000;
+  font-size: 8rem;
+}
+
+.search-input-group {
+  width: 50%;
+}
+
+.search-input {
+  padding: 20px;
+}
+
+.search-input:focus + .home-app-title {
+  /* some sweet CSS */
+  color: #fff;
+}

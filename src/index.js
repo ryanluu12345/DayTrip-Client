@@ -9,19 +9,20 @@ import * as serviceWorker from "./serviceWorker";
 import { Router, Route } from "react-router-dom";
 
 //COMPONENT IMPORTS
-import PreferenceForm from "./components/PreferenceForm/PreferenceForm";
-import ChoicePage from "./components/ChoicePage/ChoicePage";
-import SignupPage from "./components/SignupPage/SignupPage";
-import ItineraryListPage from "./components/ItineraryListPage/ItineraryListPage";
-import Navbar from "./components/Navbar/Navbar";
-import LogoutPage from "./components/LogoutPage/LogoutPage";
-import DetailedItineraryPage from "./components/DetailedItineraryPage/DetailedItineraryPage";
+import HomePage from "components/HomePage/HomePage";
+import PreferenceForm from "components/PreferenceForm/PreferenceForm";
+import ChoicePage from "components/ChoicePage/ChoicePage";
+import SignupPage from "components/SignupPage/SignupPage";
+import ItineraryListPage from "components/ItineraryListPage/ItineraryListPage";
+import Navbar from "components/Navbar/Navbar";
+import LogoutPage from "components/LogoutPage/LogoutPage";
+import DetailedItineraryPage from "components/DetailedItineraryPage/DetailedItineraryPage";
 
 //AUTH IMPORTS
-import { getUserToken } from "./services/authentication/index";
-import { signInUser } from "./actions/index";
-import requireAuth from "./components/HigherOrderComponents/require_auth";
-import notRequireAuth from "./components/HigherOrderComponents/not_require_auth";
+import { getUserToken } from "services/authentication/index";
+import { signInUser } from "actions/index";
+import requireAuth from "components/HigherOrderComponents/require_auth";
+import notRequireAuth from "components/HigherOrderComponents/not_require_auth";
 
 // Signs in user who already has a token in localStorage
 const userToken = getUserToken();
@@ -34,6 +35,7 @@ ReactDOM.render(
     <Router history={history}>
       <div>
         <Navbar />
+        <Route exact path="/home" component={HomePage} />
         <Route exact path="/signup" component={notRequireAuth(SignupPage)} />
         <Route exact path="/logout" component={requireAuth(LogoutPage)} />
         <Route

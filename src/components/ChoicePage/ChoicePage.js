@@ -47,7 +47,7 @@ class ChoicePage extends Component {
 
 const mapStateToProps = state => {
   return {
-    places: state.suggestion.places,
+    places: state.suggestions.places,
     itinerary: state.suggestions.itinerary
   };
 };
