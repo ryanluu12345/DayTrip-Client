@@ -1,7 +1,7 @@
 const initialState = {
   places: {},
   itinerary: {},
-  fullItinerary: {}
+  itineraries: []
 };
 
 export default function suggestions(state = initialState, action) {
@@ -26,6 +26,10 @@ export default function suggestions(state = initialState, action) {
     case "CREATE_ITINERARY":
       console.log(action.payload);
       return { ...state, fullItinerary: action.payload };
+
+    case "GET_ITINERARIES":
+      console.log(action.payload);
+      return { ...state, itineraries: action.payload };
 
     default:
       return state;

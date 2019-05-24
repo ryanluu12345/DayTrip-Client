@@ -1,4 +1,9 @@
-import { suggestionsRoute, echoRoute, itineraryRoute } from "constants/routes";
+import {
+  suggestionsRoute,
+  echoRoute,
+  itineraryRoute,
+  itineraryListRoute
+} from "constants/routes";
 import history from "../history";
 import "constants/routes";
 
@@ -8,6 +13,10 @@ export function addChosenPlace(payload) {
 
 export function getPlaces(payload) {
   return { type: "GET_PLACES", payload };
+}
+
+export function getItineraries(payload) {
+  return { type: "GET_ITINERARIES", payload };
 }
 
 export function createItinerary(payload) {
@@ -32,7 +41,23 @@ export function getPlacesRequest(parameters) {
   };
 }
 
-//TODO: Modify this to send a request to the create itinerary endpoint
+export function getItinerariesRequest() {
+  return dispatch => {
+    fetch(itineraryListRoute, {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("userToken"),
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(resJson => {
+        dispatch(getItineraries(resJson));
+      })
+      .catch(err => console.log(err));
+  };
+}
+
 export function createItineraryRequest(name, parameters) {
   //CHANGE later
   console.log(parameters);

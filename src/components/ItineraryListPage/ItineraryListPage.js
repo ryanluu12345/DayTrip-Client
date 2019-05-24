@@ -7,8 +7,14 @@ import "./itinerary-list-page.css";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
+//Redux
+import { getItinerariesRequest } from "actions/suggestions";
+
 class ItineraryListPage extends Component {
   //TODO: Add ability to loop through list group items and render the name of the itineraries
+  componentWillMount() {
+    this.props.getItineraries();
+  }
 
   handleItineraryClick = itineraryId => {
     this.props.history.push("/detailed-itinerary", {
@@ -23,27 +29,17 @@ class ItineraryListPage extends Component {
         <Card className="itinerary-card">
           <Card.Header>{listTitle}</Card.Header>
           <ListGroup variant="flush">
-            <ListGroup.Item
-              className="itinerary-item"
-              onClick={() => this.handleItineraryClick("1")}
-              action
-            >
-              Sample 1
-            </ListGroup.Item>
-            <ListGroup.Item
-              className="itinerary-item"
-              onClick={() => this.handleItineraryClick("2")}
-              action
-            >
-              Sample 2
-            </ListGroup.Item>
-            <ListGroup.Item
-              className="itinerary-item"
-              onClick={() => this.handleItineraryClick("3")}
-              action
-            >
-              Sample 3
-            </ListGroup.Item>
+            {this.props.itineraryList.map(item => {
+              return (
+                <ListGroup.Item
+                  className="itinerary-item"
+                  onClick={() => this.handleItineraryClick("1")}
+                  action
+                >
+                  {item.itineraryName}
+                </ListGroup.Item>
+              );
+            })}
           </ListGroup>
         </Card>
       </div>
@@ -53,13 +49,20 @@ class ItineraryListPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    itineraryList: state.suggestions.itineraries
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getItineraries: () => dispatch(getItinerariesRequest())
   };
 };
 
 export default withRouter(
   connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
   )(ItineraryListPage)
 );
