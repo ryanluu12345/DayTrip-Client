@@ -6,47 +6,37 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 class DetailedItineraryPage extends Component {
+  handleClick = url => {
+    window.open(url, "_blank");
+  };
+
   render() {
-    const { itineraryId } = this.props.location.state;
+    const { itinerary } = this.props.location.state;
+    console.log(itinerary);
     return (
       <div className="detailed-itinerary-page">
-        <h1>Detailed Itinerary: {itineraryId}</h1>
-        <h3>Breakfast</h3>
-        <Card className="place-card">
-          <Card.Img
-            variant="top"
-            src="https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Name of Place</Card.Title>
-            <Card.Text>Desc of place</Card.Text>
-            <Button className="explore-button">Explore</Button>
-          </Card.Body>
-        </Card>
-
-        <Card className="place-card">
-          <Card.Img
-            variant="top"
-            src="https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Name of Place</Card.Title>
-            <Card.Text>Desc of place</Card.Text>
-            <Button className="explore-button">Explore</Button>
-          </Card.Body>
-        </Card>
-
-        <Card className="place-card">
-          <Card.Img
-            variant="top"
-            src="https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Name of Place</Card.Title>
-            <Card.Text>Desc of place</Card.Text>
-            <Button className="explore-button">Explore</Button>
-          </Card.Body>
-        </Card>
+        {Object.keys(itinerary).map(keyName => (
+          <div className="choice-segment">
+            <h2 className="segment-text">
+              {keyName.charAt(0).toUpperCase() + keyName.slice(1)}
+            </h2>
+            <div className="choice-section">
+              <Card className="place-card">
+                <Card.Img variant="top" src={itinerary[keyName].image_url} />
+                <Card.Body>
+                  <Card.Title>{itinerary[keyName].name}</Card.Title>
+                  <Card.Text>{itinerary[keyName].phone}</Card.Text>
+                  <Button
+                    onClick={() => this.handleClick(itinerary[keyName].url)}
+                    className="explore-button"
+                  >
+                    Explore
+                  </Button>
+                </Card.Body>
+              </Card>
+            </div>
+          </div>
+        ))}
       </div>
     );
   }

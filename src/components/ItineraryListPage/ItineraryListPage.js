@@ -16,9 +16,9 @@ class ItineraryListPage extends Component {
     this.props.getItineraries();
   }
 
-  handleItineraryClick = itineraryId => {
+  handleItineraryClick = itinerary => {
     this.props.history.push("/detailed-itinerary", {
-      itineraryId: itineraryId
+      itinerary: itinerary
     });
   };
 
@@ -33,7 +33,7 @@ class ItineraryListPage extends Component {
               return (
                 <ListGroup.Item
                   className="itinerary-item"
-                  onClick={() => this.handleItineraryClick("1")}
+                  onClick={() => this.handleItineraryClick(item.itinerary)}
                   action
                 >
                   {item.itineraryName}

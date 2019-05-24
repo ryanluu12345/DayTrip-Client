@@ -10,6 +10,11 @@
   width: 50%;
 }
 
+.segment-text {
+  color: #fff;
+  text-align: center;
+}
+
 .explore-button {
   width: 100%;
 }
