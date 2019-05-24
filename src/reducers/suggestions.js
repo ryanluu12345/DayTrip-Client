@@ -25,7 +25,7 @@ export default function suggestions(state = initialState, action) {
       };
     case "CREATE_ITINERARY":
       console.log(action.payload);
-      return { ...state, fullItinerary: action.payload };
+      return initialState;
 
     case "GET_ITINERARIES":
       console.log(action.payload);

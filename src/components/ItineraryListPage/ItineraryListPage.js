@@ -2,18 +2,33 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-//Styles
-import "./itinerary-list-page.css";
+//Components
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import Spinner from "react-bootstrap/Spinner";
+
+//Styles
+import "./itinerary-list-page.css";
 
 //Redux
 import { getItinerariesRequest } from "actions/suggestions";
 
 class ItineraryListPage extends Component {
-  //TODO: Add ability to loop through list group items and render the name of the itineraries
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    };
+  }
+
   componentWillMount() {
     this.props.getItineraries();
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      isLoading: false
+    });
   }
 
   handleItineraryClick = itinerary => {
@@ -26,6 +41,9 @@ class ItineraryListPage extends Component {
     const listTitle = "Your Itineraries";
     return (
       <div className="itinerary-list-page">
+        {this.state.isLoading ? (
+          <Spinner animation="border" variant="primary" />
+        ) : null}
         <Card className="itinerary-card">
           <Card.Header>{listTitle}</Card.Header>
           <ListGroup variant="flush">
