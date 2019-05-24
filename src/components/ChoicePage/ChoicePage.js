@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./choice-page.css";
 import { connect } from "react-redux";
 import ChoiceCard from "components/ChoiceCard/ChoiceCard";
-import { createItinerary } from "actions/index";
+import { createItineraryRequest } from "actions/index";
 
 class ChoicePage extends Component {
   handleSubmitClick = () => {
@@ -54,7 +54,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createItinerary: itinerary => dispatch(createItinerary(itinerary))
+    createItinerary: itinerary => dispatch(createItineraryRequest(itinerary))
   };
 };
 

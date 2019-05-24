@@ -1,6 +1,7 @@
 const initialState = {
   places: {},
-  itinerary: {}
+  itinerary: {},
+  fullItinerary: {}
 };
 
 export default function suggestions(state = initialState, action) {
@@ -13,7 +14,6 @@ export default function suggestions(state = initialState, action) {
       const mealType = action.payload.mealType;
       const placeData = action.payload.placeData;
       /* add */
-      /** TODO: Finish up the action so it adds the chosen place to the global state */
       /** TODO: Add validation for the global state ids */
       /** TODO: Search through the places object to send the correct object back to Darin */
       return {
@@ -24,8 +24,8 @@ export default function suggestions(state = initialState, action) {
         }
       };
     case "CREATE_ITINERARY":
-      let fullItinerary = action.payload;
-      return { ...state, fullItinerary: fullItinerary };
+      console.log(action.payload);
+      return { ...state, fullItinerary: action.payload };
 
     default:
       return state;

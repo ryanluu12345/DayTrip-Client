@@ -26,7 +26,17 @@ export function signInRequest() {
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
         //Sets the token to local storage
-        localStorage.setItem("userToken", token);
+        //TAKE OUT LATER
+        firebase
+          .auth()
+          .currentUser.getIdToken(/* forceRefresh */ true)
+          .then(function(idToken) {
+            console.log(idToken);
+            localStorage.setItem("userToken", idToken);
+          })
+          .catch(function(error) {
+            // Handle error
+          });
         dispatch(signInUser());
         history.push("/itinerary-list");
       })

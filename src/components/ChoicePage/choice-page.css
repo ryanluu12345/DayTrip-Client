@@ -19,6 +19,10 @@
   justify-content: space-evenly;
 }
 
+.segment-text {
+  color: #000;
+}
+
 /* Mobile */
 @media only screen and (max-width: 768px) {
   .choice-section {

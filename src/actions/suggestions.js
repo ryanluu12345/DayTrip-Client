@@ -1,4 +1,4 @@
-import { suggestionsRoute, echoRoute } from "constants/routes";
+import { suggestionsRoute, echoRoute, itineraryRoute } from "constants/routes";
 import history from "../history";
 import "constants/routes";
 
@@ -34,16 +34,22 @@ export function getPlacesRequest(parameters) {
 
 //TODO: Modify this to send a request to the create itinerary endpoint
 export function createItineraryRequest(parameters) {
+  //CHANGE later
+  let itinerary = { choices: parameters, name: "codytt" };
   return dispatch => {
-    fetch(echoRoute, {
+    fetch(itineraryRoute, {
       method: "POST",
       headers: {
+        Authorization: localStorage.getItem("userToken"),
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(parameters)
+      body: JSON.stringify(itinerary)
     })
       .then(res => res.json())
-      .then(resJson => dispatch(createItinerary(resJson)))
+      .then(resJson => {
+        history.push("/itinerary-list");
+        dispatch(createItinerary(resJson));
+      })
       .catch(err => console.log(err));
   };
 }
