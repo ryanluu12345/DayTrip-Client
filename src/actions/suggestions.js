@@ -33,9 +33,10 @@ export function getPlacesRequest(parameters) {
 }
 
 //TODO: Modify this to send a request to the create itinerary endpoint
-export function createItineraryRequest(parameters) {
+export function createItineraryRequest(name, parameters) {
   //CHANGE later
-  let itinerary = { choices: parameters, name: "codytt" };
+  console.log(parameters);
+  let itinerary = { choices: parameters, name: name };
   return dispatch => {
     fetch(itineraryRoute, {
       method: "POST",

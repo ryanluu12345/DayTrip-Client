@@ -1,13 +1,27 @@
 import React, { Component } from "react";
-import "./choice-page.css";
 import { connect } from "react-redux";
-import ChoiceCard from "components/ChoiceCard/ChoiceCard";
 import { createItineraryRequest } from "actions/index";
 
+import ChoiceCard from "components/ChoiceCard/ChoiceCard";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
+
+import "./choice-page.css";
+
 class ChoicePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { itineraryName: "" };
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
   handleSubmitClick = () => {
-    //console.log(this.props.itinerary)
-    this.props.createItinerary(this.props.itinerary);
+    this.props.createItinerary(this.state.itineraryName, this.props.itinerary);
   };
 
   getStyleProp = (itinerary, itemId) => {
@@ -39,7 +53,17 @@ class ChoicePage extends Component {
             </div>
           </div>
         ))}
-        <button onClick={this.handleSubmitClick}>Create Itinerary</button>
+        <FormControl
+          className="itinerary-name"
+          name="itineraryName"
+          onChange={this.handleChange}
+          placeholder="Itinerary Name"
+          aria-label="Itinerary Name"
+          aria-describedby="basic-addon2"
+        />
+        <Button className="choice-submit-btn" onClick={this.handleSubmitClick}>
+          Create Itinerary
+        </Button>
       </div>
     );
   }
@@ -54,7 +78,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createItinerary: itinerary => dispatch(createItineraryRequest(itinerary))
+    createItinerary: (name, itinerary) =>
+      dispatch(createItineraryRequest(name, itinerary))
   };
 };
 
