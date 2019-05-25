@@ -4,10 +4,28 @@ import React, { Component } from "react";
 import "./detailed-itinerary.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import MapModal from "components/MapModal/MapModal";
 
 class DetailedItineraryPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { modalShow: false };
+  }
+
   handleClick = url => {
     window.open(url, "_blank");
+  };
+
+  openModal = () => {
+    this.setState({
+      modalShow: true
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      modalShow: false
+    });
   };
 
   render() {
@@ -15,6 +33,9 @@ class DetailedItineraryPage extends Component {
     console.log(itinerary);
     return (
       <div className="detailed-itinerary-page">
+        <Button onClick={this.openModal} className="map-btn" variant="primary">
+          View on Map
+        </Button>
         {Object.keys(itinerary).map(keyName => (
           <div className="choice-segment">
             <h2 className="segment-text">
@@ -37,6 +58,11 @@ class DetailedItineraryPage extends Component {
             </div>
           </div>
         ))}
+        <MapModal
+          places={itinerary}
+          show={this.state.modalShow}
+          onHide={this.closeModal}
+        />
       </div>
     );
   }

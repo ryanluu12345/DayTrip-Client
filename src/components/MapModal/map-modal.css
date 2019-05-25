@@ -1,0 +1,20 @@
+.map-modal {
+  background: white;
+  max-width: none !important;
+  max-height: none !important;
+  width: 90%;
+  height: 100%;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.marker-info-window {
+  height: 200px;
+  width: 100px;
+}
