@@ -10,9 +10,20 @@ class MapModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: true
+      isOpen: false,
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {}
     };
   }
+
+  handleMarkerClick = (props, marker, e) => {
+    this.setState({
+      selectedPlace: props.place,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  };
 
   render() {
     const { places } = this.props;
@@ -37,19 +48,36 @@ class MapModal extends React.Component {
           >
             {Object.keys(places).map(keyName => (
               <Marker
+                onClick={this.handleMarkerClick}
                 position={{
                   lat: places[keyName].coordinates.latitude,
                   lng: places[keyName].coordinates.longitude
                 }}
                 name={places[keyName].name}
-              >
-                {this.state.isOpen && (
-                  <InfoWindow onCloseClick={this.props.handleCloseCall}>
-                    <span>Something</span>
-                  </InfoWindow>
-                )}
-              </Marker>
+                place={places[keyName]}
+              />
             ))}
+            <InfoWindow
+              marker={this.state.activeMarker}
+              key={places.breakfast.name}
+              visible={true}
+              onCloseClick={this.props.handleCloseCall}
+            >
+              <div className="info-window-content">
+                <img
+                  className="info-window-img"
+                  src={this.state.selectedPlace.image_url}
+                />
+                <h2>{this.state.selectedPlace.name}</h2>
+                <p>{"Phone:" + this.state.selectedPlace.display_phone}</p>
+                <p>
+                  URL:
+                  <a href={this.state.selectedPlace.url}>
+                    {this.state.selectedPlace.name}{" "}
+                  </a>
+                </p>
+              </div>
+            </InfoWindow>
           </Map>
         </Modal.Body>
       </Modal>
